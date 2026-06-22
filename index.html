@@ -528,7 +528,7 @@ footer{background:var(--dark);color:#cfc7b8;padding:clamp(64px,8vw,100px) clamp(
   if(reduce) return; /* respect reduced motion: skip smooth scroll + animations */
 
   /* Lenis smooth scroll */
-  const lenis = new Lenis({ duration:1.2, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true });
+  const lenis = new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
   function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
 
